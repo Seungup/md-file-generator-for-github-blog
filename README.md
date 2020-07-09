@@ -10,3 +10,6 @@ arm64 : https://aka.ms/vs/16/release/VC_redist.arm64.exe
 
 x86 : https://aka.ms/vs/16/release/vc_redist.x86.exe
 
+* * *
+
+release : https://github.com/Seungup/md-file-generator-for-github-blog/blob/master/x64/Release/MdFileBuilder.exe
