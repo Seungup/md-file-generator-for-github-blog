@@ -12,4 +12,4 @@ x86 : https://aka.ms/vs/16/release/vc_redist.x86.exe
 
 * * *
 
-release : https://github.com/Seungup/md-file-generator-for-github-blog/blob/master/x64/Release/MdFileBuilder.exe
+release : [Download](https://github.com/Seungup/md-file-generator-for-github-blog/raw/master/x64/Release/MdFileBuilder.exe)
