@@ -96,7 +96,7 @@ void CMdFileBuilderDlg::OnPaint()
 {
 	if (IsIconic())
 	{
-		CPaintDC dc(this); 
+		CPaintDC dc(this);
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
@@ -129,7 +129,7 @@ void CMdFileBuilderDlg::OnBnClickedShowStrBtn()
 	// Get Title
 	GetDlgItemText(IDC_INPUT_TITLE_EDIT, title);
 	GetDlgItemText(IDC_TAGS_EDIT, tags);
-	GetDlgItemText(IDC_INPUT_TITLE_EDIT, des);
+	GetDlgItemText(IDC_INPUT_DESCRIPTION_EDIT, des);
 	// Get Category
 	m_Category.GetLBText(m_Category.GetCurSel(), category);
 
@@ -159,10 +159,10 @@ void CMdFileBuilderDlg::OnBnClickedAddCodeButton()
 	CString lang;
 	m_LangComboBox.GetLBText(m_LangComboBox.GetCurSel(), lang);
 
-	
+
 
 	m_InputDescription.SetSel(-2, -1);
-	m_InputDescription.ReplaceSel(L"\r\n```" + lang.MakeLower()+"\r\n\r\n\r\n"+ L"```");
+	m_InputDescription.ReplaceSel(L"\r\n```" + lang.MakeLower() + "\r\n\r\n\r\n" + L"```");
 }
 
 
@@ -262,8 +262,11 @@ void CMdFileBuilderDlg::BuildFile(CString title, CString des, CString category, 
 	try
 	{
 		CFile file;
+		WORD wd = 0xFEFF;
 
 		file.Open(fname, CFile::modeCreate | CFile::modeWrite, NULL);
+		file.Write(&wd, 2);
+		file.SeekToEnd();
 
 		// init md file
 		file.Write(lpzInitHori, lpzInitHori.GetLength() * sizeof(TCHAR));
@@ -275,6 +278,7 @@ void CMdFileBuilderDlg::BuildFile(CString title, CString des, CString category, 
 
 		// write description
 		file.Write(des, des.GetLength() * sizeof(TCHAR));
+
 		file.Close();
 		MessageBox(fname + " was created.");
 	}
