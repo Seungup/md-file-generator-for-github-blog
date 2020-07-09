@@ -8,7 +8,7 @@ https://www.microsoft.com/ko-kr/download/details.aspx?id=53840
 
 
 * * *
-
+0. https://aka.ms/vs/16/release/vc_redist.x64.exe 다운로드 후 
 
 1. [VSRUNTIME140.dll 오류 해결 파일](https://github.com/Seungup/md-file-generator-for-github-blog/blob/master/VCRUNTIME140.dll_64bit.zip) 다운로드 후 압축 해제0 
 
